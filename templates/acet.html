@@ -1,0 +1,56 @@
+
+{% extends "layout.html" %}
+
+{% block content %}
+
+<form>
+ <input type="button" value="Go back!" onclick="history.back()">
+</form>
+<center><h1 style="color: white;font-family: times">ACET LAB DETAILS</h1></center>
+
+<table id="example" class="update" style="width:100%">
+        <thead>
+            <tr>
+            
+                <th style="color: black">LAB NO</th>
+                <th style="color: black">LAB NAME</th>
+                <th style="color: black">SYSTEM COUNT</th>
+                <th style="color: black">WORKING</th>
+                <th style="color: black">PROBLEM</th>
+                <th style="color: black">INCHARGE</th>
+                <th style="color: black">FLOOR</th>
+                <th style="color: black">SOFTWARES AVAILABLE</th>
+           </tr>
+        </thead>
+        <tbody>
+            {% for result in results %}
+            <tr>
+                <!--td>{{ loop.index}}</td>-->
+                <td>{{ result[0]}}</td>
+                <td>{{ result[1]}}</td>
+                <td>{{ result[2]}}</td>
+                <td>{{ result[3]}}</td>
+                <td>{{ result[4]}}</td>
+                <td>{{ result[5]}}</td>
+                <td>{{ result[6]}}</td>
+                <td>{{ result[7]}}</td>
+            </tr>
+                        {% endfor %}
+
+        </tbody>
+
+    </table>
+<script type="text/javascript">
+
+  $(document).ready(function() {
+    $('#example').DataTable( {
+        dom: 'Bfrtip',
+        buttons: [
+            'copy', 'csv', 'excel', 'pdf', 'print'
+        ]
+    } );
+} );
+
+</script>
+
+ {% endblock%}

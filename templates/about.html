@@ -1,0 +1,45 @@
+
+{% extends "layout.html" %}
+ 
+{% block content %}
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+     
+    <script type="text/javascript">
+      var m={{ messages|safe }};
+      for(var i=0;i<m.length;i++)
+      {
+        alert(m[i]);
+      }
+    </script>
+    
+
+
+  {% endif %}
+{% endwith %}
+
+<style >
+	div {border-color: green;}
+</style>
+
+<br>
+<form class="form-horizontal" action="{{url_for('about')}}" method="POST">
+<CENTER><h2 style="font-family:Times;color:white"><u><b>LOGIN PAGE</b></u></h2></CENTER> 
+<center><div>
+	<br>
+	<br>
+    <label for="username"><h4 style="font-family:Times;color:black"><b>Username:</b></h4></label>
+    <input type="text" id="username" name="username">
+</div>
+
+<div>
+    <label for="pass"><h4 style="font-family:Times;color:black"><b>Password:</b></h4></label>
+    <input type="password" id="pass" name="password"
+          >
+</div>
+<br>
+
+<input type="submit" value="Submit">
+</center>
+</form>
+{% endblock %}
