@@ -245,5 +245,5 @@ def logout():
 	return render_template("project.html")
 
 
-if __name__=="__main__":
+if __name__=="__main__":# comments 
 	app.run(debug=True)
